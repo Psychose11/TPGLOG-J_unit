@@ -10,11 +10,11 @@ public class MoneyTest {
 
 	@Test
 	public void testSimpleAdd() {
-	Money m12CHF = new Money(12, "CHF"); // création de données
+	Money m12CHF = new Money(12, "CHF"); 
 	Money m14CHF = new Money(14, "CHF");
 	Money expected = new Money(26, "CHF");
-	Money result = m12CHF.add(m14CHF); // exécution de la méthode testée
-	assertTrue(expected.equals(result)); // comparaison
+	Money result = (Money) m12CHF.add(m14CHF); 
+	assertTrue(expected.equals(result)); 
 	}
 	
 	

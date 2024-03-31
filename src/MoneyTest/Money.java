@@ -1,35 +1,24 @@
 package MoneyTest;
 
-public class Money {
-    private int fAmount;
-    private String fCurrency;
+public class Money implements IMoney {
+    int amount;
+    String currency;
 
     public Money(int amount, String currency) {
-        fAmount = amount;
-        fCurrency = currency;
-    }
-
-    public int amount() {
-        return fAmount;
-    }
-
-    public String currency() {
-        return fCurrency;
-    }
-
-    public Money add(Money m) {
-        return new Money(amount() + m.amount(), currency());
+        this.amount = amount;
+        this.currency = currency;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+    public IMoney add(IMoney aMoney) {
+        return ((Money) aMoney).addMoney(this);
+    }
+
+    public IMoney addMoney(Money m) {
+        if (m.currency.equals(currency)) {
+            return new Money(amount + m.amount, currency);
+        } else {
+            return (IMoney) new MoneyBag(this, m);
         }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        Money other = (Money) obj;
-        return fAmount == other.fAmount && fCurrency.equals(other.fCurrency);
     }
 }

@@ -26,6 +26,6 @@ public class MoneyBagTest {
     public void testBagEquals() {
         assertTrue(!fMB1.equals(null));
         assertEquals(fMB1, fMB1);
-        assertFalse(fMB1.equals(fMB2)); // Utilisez assertFalse à la place de assertTrue pour vérifier si quelque chose est faux
+        assertFalse(fMB1.equals(fMB2));
     }
 }
